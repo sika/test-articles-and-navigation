@@ -4,17 +4,19 @@ import {Router, Route, IndexRoute, browserHistory} from "react-router";
 
 import Layout from "./pages/Layout.js";
 import Stories from "./pages/Stories.js";
+import StorySmall from "./components/StorySmall.js";
 import Pictures from "./pages/Pictures.js";
 import Contact from "./pages/Contact.js";
 
 const app = document.getElementById('app');
 
 ReactDOM.render(
-  <Router>
+  <Router >
     <Route path="/" component={Layout}>
       <IndexRoute component={Contact}></IndexRoute>
       <Route path="/pictures" component={Pictures}></Route>
-      {/* <Route component={Stories}></Route> */}
+      <Route path="/stories" component={Stories}></Route>
+      <Route path="/stories(/:aStory)" component={StorySmall}></Route>
     </Route>
   </Router>,
    app);

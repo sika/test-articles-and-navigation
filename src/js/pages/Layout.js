@@ -4,7 +4,7 @@ import Nav from "../components/layout/Nav.js";
 
 export default class Layout extends React.Component{
   render(){
-    console.log(this.props);
+    // console.log(this.props);
     return(
       <div>
         <Nav/>
