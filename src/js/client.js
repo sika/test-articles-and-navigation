@@ -2,9 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import {Router, Route, IndexRoute, browserHistory} from "react-router";
 
+var storiesJson = require('./data/stories.json');
+
 import Layout from "./pages/Layout.js";
 import Stories from "./pages/Stories.js";
 import StorySmall from "./components/StorySmall.js";
+import Story from "./components/Story.js";
 import Pictures from "./pages/Pictures.js";
 import Contact from "./pages/Contact.js";
 
@@ -15,8 +18,8 @@ ReactDOM.render(
     <Route path="/" component={Layout}>
       <IndexRoute component={Contact}></IndexRoute>
       <Route path="/pictures" component={Pictures}></Route>
-      <Route path="/stories" component={Stories}></Route>
-      <Route path="/stories(/:aStory)" component={StorySmall}></Route>
+      <Route path="/stories" jsonObj={storiesJson} component={Stories}></Route>
+      <Route path="/stories/:id(/:title)" jsonObj={storiesJson} component={Story}></Route>
     </Route>
   </Router>,
    app);
