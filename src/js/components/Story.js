@@ -3,20 +3,32 @@ import React from "react";
 //   render(){
 export default (props) => {
   console.log("Story");
-  // console.log(this.props.route.jsonObj.article);
-  console.log(props);
+  var text;
   const {title, id} = props.params;
-  console.log(id);
+  const idNumber = parseInt(id, 10);
+  const jsonObj = getJsonObj();
+  function getJsonObj(){
+    return props.route.jsonObj;
+  }
+  function getText(){
+    var articleArray = jsonObj.article;
+    for(var i = 0; i<articleArray.length; i++){
+      if(articleArray[i].id === idNumber){
+        console.log(" true");
+        text = articleArray[i].text;
+        console.log(text);
+      }
+    }
 
-  // const {title, text} = props.route.jsonObj.article;
-
-  // const {title, text} = this.props.info.article;
-
+    }
+  getText();
+  console.log("END story");
   return (
     <div>
       <h1>Story</h1>
-      {/* <h4>{title}</h4> */}
-      {/* <p>{text}</p> */}
+      {<h4>{title}</h4>}
+      {/* {console.log(this);} */}
+      {<p>{text}</p>}
 
     </div>
   );

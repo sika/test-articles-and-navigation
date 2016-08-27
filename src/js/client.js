@@ -12,8 +12,9 @@ import Pictures from "./pages/Pictures.js";
 import Contact from "./pages/Contact.js";
 
 const app = document.getElementById('app');
-
+  console.log("client");
 ReactDOM.render(
+
   <Router >
     <Route path="/" component={Layout}>
       <IndexRoute component={Contact}></IndexRoute>
